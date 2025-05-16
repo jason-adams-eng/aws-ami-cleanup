@@ -5,7 +5,7 @@ log_file="deregistration_log.txt"
 date_tag=$(date '+%Y-%m-%d')
 
 # Clear previous log
-> "$log_file"
+: > "$log_file"
 
 echo "=== AMI & Snapshot Deregistration Started at $(date) ===" | tee -a "$log_file"
 echo "" | tee -a "$log_file"
