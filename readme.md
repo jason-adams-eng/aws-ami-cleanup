@@ -37,3 +37,25 @@ This is a work in progress. This script automates the deregistration from a simp
 
 - AWS CLI configured with sufficient permissions
 - Bash shell environment (Linux, macOS, CloudShell, WSL)
+- The ami_list.txt file must be saved as an "LF"-based text file (not MS Windows "CLRF" type) for proper end of line breaks.
+
+## Log file
+
+The log file will look similar to this (dry run mode):
+
+```text
+=== AMI & Snapshot Deregistration Started at Fri May 16 06:40:11 PM UTC 2025 ===
+Dry-run mode: true
+=== DEBUG: Contents of ami_list.txt ===
+ami-1234567890abcdefg
+DEBUG: Read AMI ID = 'ami-1234567890abcdefg'
+[2025-05-16 18:40:11] Processing AMI: ami-1234567890abcdefg
+[2025-05-16 18:40:12] Found Snapshots:
+- snap-abcdefg1234567890
+  [2025-05-16 18:40:12] Deregistering AMI: ami-1234567890abcdefg
+  [2025-05-16 18:40:12] [DRY-RUN] Would deregister ami-1234567890abcdefg
+  [2025-05-16 18:40:12] Tagging snapshot: snap-abcdefg1234567890 before deletion
+  [2025-05-16 18:40:12] [DRY-RUN] Would tag and delete snapshot snap-abcdefg1234567890
+---
+=== Completed at Fri May 16 06:40:24 PM UTC 2025 ===
+```
