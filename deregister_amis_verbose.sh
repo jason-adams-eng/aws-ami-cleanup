@@ -17,8 +17,15 @@ date_tag=$(date '+%Y-%m-%d')
 echo "=== AMI & Snapshot Deregistration Started at $(date) ===" | tee -a "$log_file"
 echo "Dry-run mode: $dry_run" | tee -a "$log_file"
 echo "" | tee -a "$log_file"
-
-while IFS= read -r ami_id; do
+# debug line
+echo "=== DEBUG: Contents of $input_file ===" | tee -a "$log_file"
+cat "$input_file" | tee -a "$log_file"
+#
+# while IFS= read -r ami_id; do
+# debug lines
+while IFS= read -r ami_id || [ -n "$ami_id" ]; do
+  echo "DEBUG: Read AMI ID = '$ami_id'" | tee -a "$log_file"
+#
   echo "[$(date '+%F %T')] Processing AMI: $ami_id" | tee -a "$log_file"
 
   snapshot_ids=$(aws ec2 describe-images --image-ids "$ami_id" \
