@@ -19,9 +19,13 @@ This is a work in progress. This script automates the deregistration from a simp
    ```bash
    chmod +x deregister_amis_verbose.sh
    ```
-3. Run the script:
+3. Dry-run preview (try this first)
    ```bash
-   ./deregister_amis_verbose.sh
+   ./deregister_amis_verbose.sh --dry-run ami_list.txt
+   ```
+4. Real execution
+   ```bash
+   ./deregister_amis_verbose.sh ami_list.txt
    ```
 
 ## Output
