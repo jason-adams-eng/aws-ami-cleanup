@@ -6,6 +6,7 @@ jobs:
   lint:
     name: Run ShellCheck
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -13,5 +14,12 @@ jobs:
       - name: Install ShellCheck
         run: sudo apt-get update && sudo apt-get install -y shellcheck
 
-      - name: Run ShellCheck on .sh files
-        run: shellcheck -S *.sh
+      - name: Find and run ShellCheck on all .sh files
+        run: |
+          shopt -s globstar
+          files=(**/*.sh)
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "No shell script files to check."
+            exit 0
+          fi
+          shellcheck -S error "${files[@]}"
