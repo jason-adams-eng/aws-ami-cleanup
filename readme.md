@@ -2,6 +2,8 @@
 
 This is a work in progress. This script automates the deregistration from a simple text list of old Amazon Machine Images (AMI IDs) and deletes their associated EBS snapshots. Useful for reducing unnecessary storage and maintaining clean AWS environments.
 
+![ShellCheck](https://github.com/jason-adams-eng/aws-ami-cleanup/actions/workflows/shellcheck.yml/badge.svg)
+
 ## Script
 
 - `deregister_amis_verbose.sh` — Main script that:
