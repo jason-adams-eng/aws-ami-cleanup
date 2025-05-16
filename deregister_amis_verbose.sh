@@ -19,7 +19,7 @@ echo "Dry-run mode: $dry_run" | tee -a "$log_file"
 echo "" | tee -a "$log_file"
 # debug line
 echo "=== DEBUG: Contents of $input_file ===" | tee -a "$log_file"
-cat "$input_file" | tee -a "$log_file"
+tee -a "$log_file" < "$input_file"
 #
 # while IFS= read -r ami_id; do
 # debug lines
